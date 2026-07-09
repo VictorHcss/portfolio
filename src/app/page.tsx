@@ -2,6 +2,8 @@ import { Header } from "@/components/Header";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Project } from "@/types/project";
 import { Skills } from "@/components/Skills";
+import { About } from "@/components/About";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   const minhasHabilides = [
@@ -13,7 +15,7 @@ export default function Home() {
     "MySQL",
     "React",
     "Next.js",
-    "Typescript",
+    "TypeScript",
     "Tailwind CSS",
     "Git",
   ];
@@ -50,15 +52,15 @@ export default function Home() {
   return (
     <main className="max-w-4xl mx-auto px-4">
       <Header nome="VH" />
-
+      <About />
       <Skills tecnologias={minhasHabilides} />
-
       <h2 className="text-2xl font-bold mb-6">Projetos</h2>
       <div className="grid gap-4 md:grid-cols-2">
         {projects.map((item) => (
           <ProjectCard key={item.id} project={item} />
         ))}
       </div>
+      <Footer />
     </main>
   );
 }
