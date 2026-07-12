@@ -1,12 +1,10 @@
 import { Header } from "@/components/layout/Header";
-import { Project } from "@/types/project";
 import { Footer } from "@/components/layout/Footer";
-import { Hero } from "@/components/home/Hero";
-import { About } from "@/components/home/About";
-import { SkillsSection } from "@/components/home/SkillsSection";
-import { ProjectsPreview } from "@/components/home/ProjectsPreview";
-import { Contact } from "@/components/home/Contact";
+import { Project } from "@/types/project";
 import { getGithubRepositories, GithubRepository } from "@/lib/github";
+import { ProjectGrid } from "@/components/projects/ProjectGrid";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 function convertGithubToProject(repo: GithubRepository): Project {
   return {
@@ -30,17 +28,28 @@ async function getProjects(): Promise<Project[]> {
   }
 }
 
-export default async function Home() {
+export default async function ProjetosPage() {
   const projects = await getProjects();
 
   return (
-    <main className="max-w-6xl mx-auto px-4 md:px-6 relative">
+    <main className="max-w-6xl mx-auto px-4 md:px-6 relative min-h-screen">
       <Header nome="VH" />
-      <Hero />
-      <About />
-      <SkillsSection />
-      <ProjectsPreview projects={projects} />
-      <Contact />
+      <section className="py-16">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors mb-8"
+        >
+          <ArrowLeft size={20} />
+          Voltar à página principal
+        </Link>
+        <h1 className="text-3xl font-bold text-white tracking-tight mb-3">
+          Todos os projetos
+        </h1>
+        <p className="text-neutral-400 mb-10">
+          Explore todos os projetos desenvolvidos.
+        </p>
+        <ProjectGrid projects={projects} />
+      </section>
       <Footer />
     </main>
   );

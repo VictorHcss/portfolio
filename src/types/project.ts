@@ -5,4 +5,5 @@ export interface Project {
   tags: string[];
   githubUrl: string;
   demoUrl: string;
+  language: string | null;
 }
