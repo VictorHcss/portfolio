@@ -34,7 +34,7 @@ export const Hero = () => {
               Ver projetos
             </Link>
             <a
-              href="/cv/victor-henrique-cv.pdf"
+              href="/cv/Curriculo_Victor_Henrique.pdf"
               download="Victor-Henrique-Curriculo.pdf"
               className="flex items-center gap-2 px-8 py-3 bg-neutral-900/70 text-white font-semibold rounded-full border border-neutral-700 transition-all duration-300 hover:bg-neutral-800 hover:border-white/50 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
             >
