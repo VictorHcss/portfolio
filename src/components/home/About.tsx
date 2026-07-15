@@ -4,7 +4,7 @@ const infoCards = [
   {
     icon: GraduationCap,
     title: "Formação",
-    description: "Técnico em Análise e Desenvolvimento de Sistemas - Cursando",
+    description: "Análise e Desenvolvimento de Sistemas - Cursando",
   },
   {
     icon: Code2,
@@ -29,24 +29,23 @@ export const About = () => {
       <h2 className="text-2xl font-bold mb-8 text-white tracking-tight">
         Sobre
       </h2>
-
       <div className="bg-neutral-900/50 p-8 rounded-2xl border border-neutral-800 backdrop-blur-sm mb-10">
         <p className="text-neutral-300 leading-relaxed mb-4">
-          Sou desenvolvedor em formação, formado como Técnico em Análise e
-          Desenvolvimento de Sistemas pelo SENAC e atualmente cursando graduação
-          em ADS.
+          Sou Desenvolvedor Full Stack, com formação técnica em Análise e
+          Desenvolvimento de Sistemas pelo SENAC e graduando em Análise e
+          Desenvolvimento de Sistemas.
         </p>
 
         <p className="text-neutral-300 leading-relaxed mb-4">
-          Desenvolvo aplicações front-end e back-end por meio de projetos
-          práticos, buscando criar soluções organizadas, funcionais e focadas na
-          experiência do usuário.
+          Desenvolvo aplicações web utilizando React, Next.js, TypeScript,
+          Node.js e Python, atuando no front-end, back-end, integração com APIs
+          e implementação de regras de negócio.
         </p>
 
         <p className="text-neutral-300 leading-relaxed">
-          Estou em transição para a área de Tecnologia e busco minha primeira
-          oportunidade como desenvolvedor, com foco em aprendizado contínuo e
-          boas práticas de desenvolvimento.
+          Meus projetos são voltados à construção de soluções para problemas
+          reais, com foco em organização, funcionalidade e experiência do
+          usuário.
         </p>
       </div>
 
