@@ -24,7 +24,7 @@ export const Hero = () => {
             Olá, sou Victor
           </h1>
           <p className="text-xl text-neutral-400 mb-8">
-            Desenvolvedor Full Stack Júnior.
+            Desenvolvimento Full Stack | React • Next.js • TypeScript
           </p>
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             <Link

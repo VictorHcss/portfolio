@@ -6,7 +6,7 @@ export const AboutPreview = () => {
       <div className="bg-neutral-900/50 p-8 rounded-2xl border border-neutral-800 backdrop-blur-sm">
         <p className="text-neutral-300 leading-relaxed mb-6">
           Sou Desenvolvedor Full Stack e construo aplicações web com React,
-          Next.js, TypeScript, Node.js e Python, transformando ideias e
+          Next.js, TypeScript, Node.js, transformando ideias e
           problemas reais em soluções funcionais.
         </p>
 
