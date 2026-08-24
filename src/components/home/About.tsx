@@ -37,8 +37,7 @@ export const About = () => {
         </p>
 
         <p className="text-neutral-300 leading-relaxed mb-4">
-          Desenvolvo aplicações web utilizando React, Next.js, TypeScript,
-          Node.js, atuando no front-end, back-end, integração com APIs
+          Desenvolvo aplicações web atuando no front-end, back-end, integração com APIs
           e implementação de regras de negócio.
         </p>
 
