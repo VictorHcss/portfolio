@@ -4,12 +4,12 @@ const infoCards = [
   {
     icon: GraduationCap,
     title: "Formação",
-    description: "Análise e Desenvolvimento de Sistemas - Cursando",
+    description: "ADS — graduação em andamento",
   },
   {
     icon: Code2,
     title: "Foco",
-    description: "Desenvolvimento Full Stack",
+    description: "Desenvolvimento Web",
   },
   {
     icon: MapPin,
@@ -18,8 +18,8 @@ const infoCards = [
   },
   {
     icon: Rocket,
-    title: "Evolução",
-    description: "Projetos práticos e aprendizado contínuo",
+    title: "Prática",
+    description: "Projetos próprios e aprendizado contínuo",
   },
 ];
 
@@ -29,22 +29,22 @@ export const About = () => {
       <h2 className="text-2xl font-bold mb-8 text-white tracking-tight">
         Sobre
       </h2>
+
       <div className="bg-neutral-900/50 p-8 rounded-2xl border border-neutral-800 backdrop-blur-sm mb-10">
         <p className="text-neutral-300 leading-relaxed mb-4">
-          Sou Desenvolvedor Full Stack, com formação técnica em Análise e
-          Desenvolvimento de Sistemas pelo SENAC e graduando em Análise e
-          Desenvolvimento de Sistemas.
+          Sou desenvolvedor em formação, com foco em desenvolvimento web e
+          experiência prática na construção de projetos próprios.
         </p>
-
+        
         <p className="text-neutral-300 leading-relaxed mb-4">
-          Desenvolvo aplicações web atuando no front-end, back-end, integração com APIs
-          e implementação de regras de negócio.
+          Estudo JavaScript, TypeScript e Python, aplicando esses conhecimentos
+          em aplicações web com React, Next.js, APIs e bancos de dados.
         </p>
 
         <p className="text-neutral-300 leading-relaxed">
-          Meus projetos são voltados à construção de soluções para problemas
-          reais, com foco em organização, funcionalidade e experiência do
-          usuário.
+          Gosto de transformar problemas do dia a dia em projetos de software,
+          explorando também arquitetura, regras de negócio, testes e boas
+          práticas de desenvolvimento.
         </p>
       </div>
 

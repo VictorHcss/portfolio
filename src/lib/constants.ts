@@ -1,6 +1,7 @@
 export const SKILLS = {
-  frontend: ["HTML", "CSS", "JS", "React", "Next.js", "TypeScript", "Tailwind CSS"],
-  backend: ["PHP", "Python", "Laravel"],
-  database: ["MySQL", "PostgreSQL"],
-  tools: ["Git"],
+  languages: ["JavaScript", "TypeScript", "Python"],
+  frontend: ["HTML", "CSS", "React", "Next.js", "Tailwind CSS"],
+  backend: ["FastAPI"],
+  database: ["PostgreSQL"],
+  tools: ["Git", "GitHub", "Docker"],
 };

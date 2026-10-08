@@ -24,7 +24,7 @@ export const Hero = () => {
             Olá, sou Victor
           </h1>
           <p className="text-xl text-neutral-400 mb-8">
-            Estudante de ADS | Desenvolvimento Web | JavaScript • TypeScript • Python
+            Desenvolvimento Web | JavaScript • TypeScript • Python
           </p>
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             <Link
