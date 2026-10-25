@@ -4,55 +4,63 @@ const infoCards = [
   {
     icon: GraduationCap,
     title: "Formação",
-    description: "Tecnólogo em ADS (Anhanguera, cursando) e Técnico em ADS (SENAC, concluído)",
+    description:
+      "Tecnólogo em ADS (Anhanguera, cursando) e Técnico em ADS (SENAC, concluído)",
   },
   {
     icon: Code2,
     title: "Foco",
-    description: "Desenvolvimento full stack com TypeScript, React, Next.js e PostgreSQL",
+    description:
+      "Desenvolvimento Full-Stack",
   },
   {
     icon: MapPin,
     title: "Localização",
-    description: "Governador Valadares, MG — aberto a vagas remotas, híbridas e presenciais",
+    description:
+      "Governador Valadares - MG",
   },
   {
     icon: Rocket,
-    title: "Experiência",
-    description: "Análise de processos e relatórios diários para a diretoria na Rede HG",
+    title: "Experiência prática",
+    description:
+      "Desenvolvimento de projetos próprios, do planejamento à implementação",
   },
 ];
 
 export const About = () => {
   return (
-    <section className="py-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
-      <h2 className="text-2xl font-bold mb-8 text-white tracking-tight">
+    <section className="py-14 md:py-16 animate-fade-up">
+      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white tracking-tight">
         Sobre
       </h2>
-
-      <div className="bg-neutral-900/50 p-8 rounded-2xl border border-neutral-800 backdrop-blur-sm mb-10">
+      <div className="bg-neutral-900/50 p-6 md:p-8 rounded-2xl border border-neutral-800 backdrop-blur-sm mb-10">
         <p className="text-neutral-300 leading-relaxed mb-4">
-          Estudo Análise e Desenvolvimento de Sistemas e transformo o que aprendo em
-          projetos publicados. Meu projeto principal, o Kombexa, é um sistema de gestão
-          para academias de artes marciais, com permissões, isolamento de dados entre
-          academias e 269 testes automatizados.
+          Estudo Análise e Desenvolvimento de Sistemas e busco transformar o que
+          aprendo em projetos reais. Ao longo dessa jornada, desenvolvo
+          aplicações como o Kombexa, uma plataforma de gestão para academias de
+          artes marciais, o Foodie, voltado ao universo gastronômico, e o
+          Finance, além de outros projetos que me permitem explorar novas ideias
+          e desafios.
         </p>
 
         <p className="text-neutral-300 leading-relaxed mb-4">
-          Trabalho principalmente com TypeScript, React e Next.js no front-end e no
-          back-end, PostgreSQL para dados e Python com FastAPI em APIs. Também uso
-          ferramentas de IA (ChatGPT, Claude e Gemini) como apoio, revisando o que elas
-          produzem.
+          Trabalho e estudo com TypeScript, React e Next.js no desenvolvimento
+          full stack, PostgreSQL para bancos de dados e Python com FastAPI para
+          APIs. Também utilizo ferramentas de inteligência artificial, como
+          ChatGPT, Claude e Gemini, para apoiar o desenvolvimento, sempre
+          revisando e validando o código gerado.
         </p>
 
         <p className="text-neutral-300 leading-relaxed">
-          Na Rede HG, analiso a operação de postos, registro desvios e preparo relatórios
-          diários para a diretoria. Essa rotina me ensinou a olhar para processos e
-          comunicar informações com clareza, o que levo para o código.
+          Busco desenvolver aplicações que vão além de uma interface bem
+          construída, valorizando funcionalidades consistentes, código
+          organizado, segurança e qualidade. Gosto de enfrentar desafios
+          práticos, aprender novas tecnologias e aprimorar continuamente meus
+          projetos, transformando ideias em soluções funcionais.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {infoCards.map((card, index) => (
           <div
             key={index}

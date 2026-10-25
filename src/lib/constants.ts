@@ -16,5 +16,5 @@ export const SKILL_GROUPS: { label: string; items: string[] }[] = [
   { label: "Back-end e APIs", items: ["APIs REST", "Next.js", "FastAPI"] },
   { label: "Banco de dados", items: ["PostgreSQL", "SQLite"] },
   { label: "Testes", items: ["Vitest", "Playwright"] },
-  { label: "Ferramentas", items: ["Git", "GitHub", "GitHub Actions", "Docker", "Vercel"] },
+  { label: "Ferramentas", items: ["Git", "GitHub", "Docker", "Vercel"] },
 ];

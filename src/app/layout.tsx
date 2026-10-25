@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/constants";
@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     title: `${SITE.name} | ${SITE.title}`,
     description: "Projetos, habilidades e currículo de Victor Henrique.",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a0a0a",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({

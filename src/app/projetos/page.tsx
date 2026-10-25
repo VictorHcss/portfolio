@@ -17,9 +17,9 @@ export default async function ProjetosPage() {
   const otherProjects = await getOtherProjects();
 
   return (
-    <main id="conteudo" className="max-w-6xl mx-auto px-4 md:px-6 relative min-h-screen">
+    <main id="conteudo" className="max-w-6xl mx-auto px-4 sm:px-6 relative min-h-screen">
       <Header nome="VH" />
-      <section className="py-16">
+      <section className="py-14 md:py-16">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors mb-8"
@@ -27,7 +27,7 @@ export default async function ProjetosPage() {
           <ArrowLeft size={20} />
           Voltar à página principal
         </Link>
-        <h1 className="text-3xl font-bold text-white tracking-tight mb-3">Projetos</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-3 text-balance">Projetos</h1>
         <p className="text-neutral-400 mb-10">
           Os três primeiros são os mais completos. Os demais são estudos e experimentos.
         </p>

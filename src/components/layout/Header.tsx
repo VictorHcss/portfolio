@@ -21,14 +21,14 @@ export const Header = ({ nome }: HeaderProps) => {
   const pathname = usePathname();
 
   return (
-    <header className="py-8 border-b border-neutral-800 flex justify-between items-center relative z-50 animate-in fade-in slide-in-from-top-4 duration-500">
+    <header className="py-6 md:py-8 border-b border-neutral-800 flex justify-between items-center relative z-50 animate-fade-down">
       <Link href="/" className="text-2xl font-bold tracking-tight text-white hover:text-neutral-300 transition-colors">
         {nome}
       </Link>
 
       {/* Desktop Nav */}
       <nav className="hidden md:block">
-        <ul className="flex gap-8 text-sm font-medium">
+        <ul className="flex gap-6 lg:gap-8 text-sm font-medium">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link
@@ -50,7 +50,7 @@ export const Header = ({ nome }: HeaderProps) => {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="md:hidden text-neutral-400 hover:text-white transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
+        className="md:hidden p-2 -mr-2 text-neutral-400 hover:text-white transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
         aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
       >
         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -58,14 +58,14 @@ export const Header = ({ nome }: HeaderProps) => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <nav className="md:hidden absolute top-full left-0 right-0 bg-neutral-950 border-b border-neutral-800 py-6">
-          <ul className="flex flex-col gap-4 text-center">
+        <nav className="md:hidden absolute top-full left-0 right-0 bg-neutral-950 border-b border-neutral-800 py-4 shadow-2xl shadow-black/60 animate-fade-down">
+          <ul className="flex flex-col gap-1">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block py-2 text-sm font-medium transition-colors duration-300 ${
+                  className={`block py-3 px-4 -mx-4 text-sm font-medium transition-colors duration-300 ${
                     pathname === item.href ? "text-white" : "text-neutral-400 hover:text-white"
                   }`}
                 >

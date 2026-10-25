@@ -12,7 +12,7 @@ export default async function Home() {
   const otherProjects = await getOtherProjects();
 
   return (
-    <main id="conteudo" className="max-w-6xl mx-auto px-4 md:px-6 relative">
+    <main id="conteudo" className="max-w-6xl mx-auto px-4 sm:px-6 relative">
       <Header nome="VH" />
       <Hero />
       <FeaturedProjects />

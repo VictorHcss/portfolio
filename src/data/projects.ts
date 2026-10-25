@@ -2,11 +2,11 @@ import type { FeaturedProject, Project } from "@/types/project";
 
 /**
  * Projetos em destaque, escritos à mão. Mantenha estes textos alinhados
- * ao currículo e aos READMEs dos repositórios (só inclua o que está implementado).
+ * ao currículo e aos READMEs dos repositórios.
  */
 export const FEATURED_PROJECTS: FeaturedProject[] = [
   {
-    slug: "kombexa",
+    slug: "Kombexa",
     title: "Kombexa",
     status: "MVP em desenvolvimento",
     summary:
@@ -16,10 +16,19 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     highlights: [
       "Alunos, mensalidades, pagamentos parciais e financeiro",
       "Autenticação, permissões por perfil e isolamento de dados entre academias",
-      "Log de auditoria e PWA instalável",
-      "269 testes automatizados (Vitest) contra PostgreSQL real, mais testes de ponta a ponta com Playwright, executados em CI",
+      "Log de auditoria",
+      "Cadastro de alunos por QR Code para agilizar o processo de registro",
+      "Área do Aluno para acesso às pagamentos de mensalidade e funcionalidades",
     ],
-    stack: ["Next.js", "React", "TypeScript", "PostgreSQL", "Drizzle ORM", "Zod", "Docker"],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Zod",
+      "Docker",
+    ],
     githubUrl: "https://github.com/VictorHcss/kombexa",
   },
   {
@@ -36,7 +45,16 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "API FastAPI em camadas, com autenticação e isolamento de dados por conta",
       "89 testes automatizados no back-end",
     ],
-    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "React Query", "Recharts", "FastAPI", "SQLite"],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "React Query",
+      "Recharts",
+      "FastAPI",
+      "SQLite",
+    ],
     githubUrl: "https://github.com/VictorHcss/finance-ai",
     demoUrl: "https://finance-ai-flame-six.vercel.app",
   },
@@ -53,23 +71,38 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "Sacola, cupons de desconto, favoritos e avaliações",
       "Login, cadastro e perfil; tema claro e escuro",
     ],
-    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Context API"],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Context API",
+    ],
     githubUrl: "https://github.com/VictorHcss/foodie",
     demoUrl: "https://foodie-neon-five.vercel.app",
     note: "",
   },
 ];
 
-const FEATURED_REPOS = new Set(["kombexa", "fight-manager", "finance-ai", "foodie", "portfolio"]);
+const FEATURED_REPOS = new Set([
+  "kombexa",
+  "fight-manager",
+  "finance-ai",
+  "foodie",
+  "portfolio",
+]);
 
-export const isFeaturedRepo = (name: string) => FEATURED_REPOS.has(name.toLowerCase());
+export const isFeaturedRepo = (name: string) =>
+  FEATURED_REPOS.has(name.toLowerCase());
 
 /** Usado quando a API do GitHub estiver indisponível (limite de requisições, por exemplo). */
 export const FALLBACK_OTHER_PROJECTS: Project[] = [
   {
     id: "bookhub",
     title: "bookhub",
-    description: "Sistema responsivo em PHP para gestão de acervo, empréstimos e devoluções, com portal público de catálogo.",
+    description:
+      "Sistema responsivo em PHP para gestão de acervo, empréstimos e devoluções, com portal público de catálogo.",
     tags: [],
     githubUrl: "https://github.com/VictorHcss/bookhub",
     demoUrl: "",
@@ -78,7 +111,8 @@ export const FALLBACK_OTHER_PROJECTS: Project[] = [
   {
     id: "caderno-project",
     title: "caderno-project",
-    description: "Sistema web para organizar anotações acadêmicas por disciplina.",
+    description:
+      "Sistema web para organizar anotações acadêmicas por disciplina.",
     tags: [],
     githubUrl: "https://github.com/VictorHcss/caderno-project",
     demoUrl: "https://caderno-project.vercel.app",

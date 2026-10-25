@@ -18,6 +18,33 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --animate-fade-up: fade-up 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-down: fade-down 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 14px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fade-down {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -12px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

@@ -4,8 +4,8 @@ import { LinkedinIcon } from "../icons/LinkedinIcon";
 
 export const Footer = () => {
   return (
-    <footer className="py-12 border-t border-neutral-800 mt-20 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
-      <p className="text-neutral-400 mb-6 leading-relaxed">
+    <footer className="py-10 border-t border-neutral-800 mt-12 text-center animate-fade-up">
+      <p className="text-neutral-400 mb-6 leading-relaxed max-w-2xl mx-auto text-pretty">
         © {new Date().getFullYear()}{" "}Victor Henrique. “Faith is taking the first step even
         when you can&apos;t see the whole staircase.” ― Martin Luther King Jr.
       </p>

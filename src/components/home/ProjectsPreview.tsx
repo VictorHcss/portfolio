@@ -12,8 +12,8 @@ export const ProjectsPreview = ({ projects }: ProjectsPreviewProps) => {
   if (previewProjects.length === 0) return null;
 
   return (
-    <section className="py-12">
-      <h2 className="text-2xl font-bold mb-3 text-white tracking-tight">Outros projetos</h2>
+    <section className="py-14 md:py-16 animate-fade-up">
+      <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white tracking-tight text-balance">Outros projetos</h2>
       <p className="text-neutral-400 mb-8">Estudos e experimentos que ajudaram na minha evolução.</p>
       <ProjectGrid projects={previewProjects} />
       <div className="mt-10 flex justify-center">
