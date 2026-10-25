@@ -1,45 +1,24 @@
 import { Header } from "@/components/layout/Header";
-import { Project } from "@/types/project";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
 import { About } from "@/components/home/About";
 import { SkillsSection } from "@/components/home/SkillsSection";
+import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { ProjectsPreview } from "@/components/home/ProjectsPreview";
 import { Contact } from "@/components/home/Contact";
-import { getGithubRepositories, GithubRepository } from "@/lib/github";
-
-function convertGithubToProject(repo: GithubRepository): Project {
-  return {
-    id: repo.id,
-    title: repo.name,
-    description: repo.description || "Projeto desenvolvido para estudos e prática de desenvolvimento.",
-    tags: [],
-    githubUrl: repo.html_url,
-    demoUrl: repo.homepage || "",
-    language: repo.language,
-  };
-}
-
-async function getProjects(): Promise<Project[]> {
-  try {
-    const repos = await getGithubRepositories();
-    return repos.map(convertGithubToProject);
-  } catch (error) {
-    console.error("Error loading projects:", error);
-    return [];
-  }
-}
+import { getOtherProjects } from "@/lib/projects";
 
 export default async function Home() {
-  const projects = await getProjects();
+  const otherProjects = await getOtherProjects();
 
   return (
-    <main className="max-w-6xl mx-auto px-4 md:px-6 relative">
+    <main id="conteudo" className="max-w-6xl mx-auto px-4 md:px-6 relative">
       <Header nome="VH" />
       <Hero />
-      <About />
+      <FeaturedProjects />
       <SkillsSection />
-      <ProjectsPreview projects={projects} />
+      <About />
+      <ProjectsPreview projects={otherProjects} />
       <Contact />
       <Footer />
     </main>

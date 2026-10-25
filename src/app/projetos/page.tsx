@@ -1,38 +1,23 @@
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { Project } from "@/types/project";
-import { getGithubRepositories, GithubRepository } from "@/lib/github";
-import { ProjectGrid } from "@/components/projects/ProjectGrid";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { ProjectGrid } from "@/components/projects/ProjectGrid";
+import { FeaturedProjectCard } from "@/components/projects/FeaturedProjectCard";
+import { FEATURED_PROJECTS } from "@/data/projects";
+import { getOtherProjects } from "@/lib/projects";
 
-function convertGithubToProject(repo: GithubRepository): Project {
-  return {
-    id: repo.id,
-    title: repo.name,
-    description: repo.description || "Projeto desenvolvido para estudos e prática de desenvolvimento.",
-    tags: [],
-    githubUrl: repo.html_url,
-    demoUrl: repo.homepage || "",
-    language: repo.language,
-  };
-}
-
-async function getProjects(): Promise<Project[]> {
-  try {
-    const repos = await getGithubRepositories();
-    return repos.map(convertGithubToProject);
-  } catch (error) {
-    console.error("Error loading projects:", error);
-    return [];
-  }
-}
+export const metadata: Metadata = {
+  title: "Projetos",
+  description: "Kombexa, Finance.AI, Foodie e outros projetos de Victor Henrique.",
+};
 
 export default async function ProjetosPage() {
-  const projects = await getProjects();
+  const otherProjects = await getOtherProjects();
 
   return (
-    <main className="max-w-6xl mx-auto px-4 md:px-6 relative min-h-screen">
+    <main id="conteudo" className="max-w-6xl mx-auto px-4 md:px-6 relative min-h-screen">
       <Header nome="VH" />
       <section className="py-16">
         <Link
@@ -42,13 +27,21 @@ export default async function ProjetosPage() {
           <ArrowLeft size={20} />
           Voltar à página principal
         </Link>
-        <h1 className="text-3xl font-bold text-white tracking-tight mb-3">
-          Todos os projetos
-        </h1>
+        <h1 className="text-3xl font-bold text-white tracking-tight mb-3">Projetos</h1>
         <p className="text-neutral-400 mb-10">
-          Explore todos os projetos desenvolvidos.
+          Os três primeiros são os mais completos. Os demais são estudos e experimentos.
         </p>
-        <ProjectGrid projects={projects} />
+        <div className="flex flex-col gap-8 mb-16">
+          {FEATURED_PROJECTS.map((project) => (
+            <FeaturedProjectCard key={project.slug} project={project} />
+          ))}
+        </div>
+        {otherProjects.length > 0 && (
+          <>
+            <h2 className="text-2xl font-bold text-white tracking-tight mb-8">Outros projetos</h2>
+            <ProjectGrid projects={otherProjects} />
+          </>
+        )}
       </section>
       <Footer />
     </main>

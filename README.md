@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio — Victor Henrique
 
-## Getting Started
+Site pessoal de Victor Henrique, Desenvolvedor Full Stack Júnior: projetos em destaque, habilidades, sobre e contato.
 
-First, run the development server:
+**Online:** https://portfolio-virid-alpha-93.vercel.app
+
+## Tecnologias
+
+Next.js (App Router), React, TypeScript, Tailwind CSS 4, lucide-react, React Compiler.
+
+## Como rodar
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run lint
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Variável opcional: `GITHUB_TOKEN` (aumenta o limite da API do GitHub, usada para listar os "Outros projetos").
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Onde editar o conteúdo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| O que | Arquivo |
+|---|---|
+| Nome, links, currículo | `src/lib/constants.ts` |
+| Habilidades | `src/lib/constants.ts` (`SKILL_GROUPS`) |
+| Projetos em destaque | `src/data/projects.ts` (`FEATURED_PROJECTS`) |
+| Lista de "outros projetos" (fallback) | `src/data/projects.ts` |
+| Currículo em PDF | `public/cv/` (atualize também `SITE.cv`) |
 
-## Learn More
+## Decisões
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Projetos em destaque escritos à mão:** os três principais têm texto, tecnologias e links controlados por mim; só entra o que está implementado.
+- **Outros projetos via API do GitHub, com fallback:** se a API falhar (limite de requisições), o site usa uma lista fixa em vez de mostrar uma seção vazia.
+- **Formulário de contato:** não há servidor de e-mail; o formulário abre o aplicativo de e-mail com a mensagem preenchida (`mailto:`).
+- **Acessibilidade:** link "Ir para o conteúdo", foco visível, `prefers-reduced-motion`, rótulos nos ícones.

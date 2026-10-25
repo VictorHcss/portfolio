@@ -4,22 +4,22 @@ const infoCards = [
   {
     icon: GraduationCap,
     title: "Formação",
-    description: "ADS — graduação em andamento",
+    description: "Tecnólogo em ADS (Anhanguera, cursando) e Técnico em ADS (SENAC, concluído)",
   },
   {
     icon: Code2,
     title: "Foco",
-    description: "Desenvolvimento Web",
+    description: "Desenvolvimento full stack com TypeScript, React, Next.js e PostgreSQL",
   },
   {
     icon: MapPin,
     title: "Localização",
-    description: "Governador Valadares - MG",
+    description: "Governador Valadares, MG — aberto a vagas remotas, híbridas e presenciais",
   },
   {
     icon: Rocket,
-    title: "Prática",
-    description: "Projetos próprios e aprendizado contínuo",
+    title: "Experiência",
+    description: "Análise de processos e relatórios diários para a diretoria na Rede HG",
   },
 ];
 
@@ -32,19 +32,23 @@ export const About = () => {
 
       <div className="bg-neutral-900/50 p-8 rounded-2xl border border-neutral-800 backdrop-blur-sm mb-10">
         <p className="text-neutral-300 leading-relaxed mb-4">
-          Sou desenvolvedor em formação, com foco em desenvolvimento web e
-          experiência prática na construção de projetos próprios.
+          Estudo Análise e Desenvolvimento de Sistemas e transformo o que aprendo em
+          projetos publicados. Meu projeto principal, o Kombexa, é um sistema de gestão
+          para academias de artes marciais, com permissões, isolamento de dados entre
+          academias e 269 testes automatizados.
         </p>
-        
+
         <p className="text-neutral-300 leading-relaxed mb-4">
-          Estudo JavaScript, TypeScript e Python, aplicando esses conhecimentos
-          em aplicações web com React, Next.js, APIs e bancos de dados.
+          Trabalho principalmente com TypeScript, React e Next.js no front-end e no
+          back-end, PostgreSQL para dados e Python com FastAPI em APIs. Também uso
+          ferramentas de IA (ChatGPT, Claude e Gemini) como apoio, revisando o que elas
+          produzem.
         </p>
 
         <p className="text-neutral-300 leading-relaxed">
-          Gosto de transformar problemas do dia a dia em projetos de software,
-          explorando também arquitetura, regras de negócio, testes e boas
-          práticas de desenvolvimento.
+          Na Rede HG, analiso a operação de postos, registro desvios e preparo relatórios
+          diários para a diretoria. Essa rotina me ensinou a olhar para processos e
+          comunicar informações com clareza, o que levo para o código.
         </p>
       </div>
 

@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <footer className="py-12 border-t border-neutral-800 mt-20 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
       <p className="text-neutral-400 mb-6 leading-relaxed">
-        © {new Date().getFullYear()} VH. “Faith is taking the first step even
+        © {new Date().getFullYear()}{" "}Victor Henrique. “Faith is taking the first step even
         when you can&apos;t see the whole staircase.” ― Martin Luther King Jr.
       </p>
       <div className="flex justify-center gap-6">

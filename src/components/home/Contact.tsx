@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { SITE } from "@/lib/constants";
 import { Mail, Download } from "lucide-react";
 import { GithubIcon } from "../icons/GithubIcon";
 import { LinkedinIcon } from "../icons/LinkedinIcon";
 
-type FormState = "idle" | "sending" | "success" | "error";
+type FormState = "idle" | "opened";
 
 interface ContactProps {
   full?: boolean;
@@ -14,12 +15,18 @@ interface ContactProps {
 export const Contact = ({ full = false }: ContactProps) => {
   const [formState, setFormState] = useState<FormState>("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Não há servidor de e-mail: o formulário abre o aplicativo de e-mail do visitante
+  // com a mensagem preenchida, em vez de fingir que enviou.
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormState("sending");
-    setTimeout(() => {
-      setFormState("success");
-    }, 1500);
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") ?? "");
+    const email = String(data.get("email") ?? "");
+    const subject = String(data.get("subject") ?? "");
+    const message = String(data.get("message") ?? "");
+    const body = `${message}\n\n— ${name} (${email})`;
+    window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setFormState("opened");
   };
 
   return (
@@ -30,7 +37,7 @@ export const Contact = ({ full = false }: ContactProps) => {
       <div className={`${full ? "grid grid-cols-1 lg:grid-cols-2 gap-10" : ""}`}>
         <div>
           <p className="text-neutral-400 mb-6 leading-relaxed">
-            Estou aberto a oportunidades, projetos e novas conexões profissionais.
+            Busco vaga de Desenvolvedor Júnior ou estágio, remoto, híbrido ou presencial. Fico à disposição para conversar.
           </p>
           <div className="flex items-center gap-3 mb-8">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
@@ -51,12 +58,12 @@ export const Contact = ({ full = false }: ContactProps) => {
             </a>
           </div>
           <a
-            href="/cv/Curriculo_Victor_Henrique.pdf"
-            download="Victor-Henrique-Curriculo.pdf"
+            href={SITE.cv}
+            download={SITE.cvDownloadName}
             className="inline-flex items-center gap-2 px-8 py-3 bg-neutral-900/70 text-white font-semibold rounded-full border border-neutral-700 transition-all duration-300 hover:bg-neutral-800 hover:border-white/50 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
           >
             <Download size={20} />
-            Download CV
+            Baixar currículo (PDF)
           </a>
         </div>
 
@@ -70,8 +77,7 @@ export const Contact = ({ full = false }: ContactProps) => {
                   id="name"
                   name="name"
                   required
-                  disabled={formState === "sending"}
-                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 rounded-xl text-white focus:outline-none focus:border-white/50 transition-colors disabled:opacity-50"
+                                    className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 rounded-xl text-white focus:outline-none focus:border-white/50 transition-colors"
                 />
               </div>
               <div>
@@ -81,8 +87,7 @@ export const Contact = ({ full = false }: ContactProps) => {
                   id="email"
                   name="email"
                   required
-                  disabled={formState === "sending"}
-                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 rounded-xl text-white focus:outline-none focus:border-white/50 transition-colors disabled:opacity-50"
+                                    className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 rounded-xl text-white focus:outline-none focus:border-white/50 transition-colors"
                 />
               </div>
               <div>
@@ -92,8 +97,7 @@ export const Contact = ({ full = false }: ContactProps) => {
                   id="subject"
                   name="subject"
                   required
-                  disabled={formState === "sending"}
-                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 rounded-xl text-white focus:outline-none focus:border-white/50 transition-colors disabled:opacity-50"
+                                    className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 rounded-xl text-white focus:outline-none focus:border-white/50 transition-colors"
                 />
               </div>
               <div>
@@ -103,26 +107,20 @@ export const Contact = ({ full = false }: ContactProps) => {
                   name="message"
                   rows={4}
                   required
-                  disabled={formState === "sending"}
-                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 rounded-xl text-white focus:outline-none focus:border-white/50 transition-colors resize-none disabled:opacity-50"
+                                    className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 rounded-xl text-white focus:outline-none focus:border-white/50 transition-colors resize-none"
                 ></textarea>
               </div>
               <button
                 type="submit"
-                disabled={formState === "sending" || formState === "success"}
-                className={`w-full py-3 rounded-xl font-semibold transition-all duration-300 ${
-                  formState === "success"
-                    ? "bg-green-600/20 text-green-400 border border-green-600/50"
-                    : formState === "error"
-                    ? "bg-red-600/20 text-red-400 border border-red-600/50"
-                    : "bg-white text-black hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
-                }`}
+                className="w-full py-3 rounded-xl font-semibold bg-white text-black transition-all duration-300 hover:scale-[1.01] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
               >
-                {formState === "sending" && "Enviando..."}
-                {formState === "success" && "Mensagem enviada!"}
-                {formState === "error" && "Erro ao enviar"}
-                {formState === "idle" && "Enviar mensagem"}
+                Escrever por e-mail
               </button>
+              <p className="text-xs text-neutral-400" role="status" aria-live="polite">
+                {formState === "opened"
+                  ? `Seu aplicativo de e-mail deve ter aberto. Se não abriu, escreva para ${SITE.email}.`
+                  : "O botão abre o seu aplicativo de e-mail com a mensagem preenchida."}
+              </p>
             </form>
           </div>
         )}
