@@ -30,6 +30,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "Docker",
     ],
     githubUrl: "https://github.com/VictorHcss/kombexa",
+    demoUrl: "https://kombexa-website-pi.vercel.app",
   },
   {
     slug: "finance-ai",
