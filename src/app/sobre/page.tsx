@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { About } from "@/components/home/About";
+import { About } from "@/components/sections/About";
+import { Stack } from "@/components/sections/Stack";
+import { BeyondCode } from "@/components/sections/BeyondCode";
+import { BackLink } from "@/components/ui/BackLink";
 
 export const metadata: Metadata = {
   title: "Sobre",
-  description: "Formação, foco e experiência de Victor Henrique.",
+  description: "Trajetória, formação, forma de trabalhar e stack de Victor Henrique.",
+  alternates: { canonical: "/sobre" },
 };
 
 export default function SobrePage() {
   return (
-    <main id="conteudo" className="max-w-6xl mx-auto px-4 sm:px-6 relative">
-      <Header nome="VH" />
-      <About />
-      <Footer />
-    </main>
+    <div className="pt-24 md:pt-32 [&>section:first-of-type]:pt-10 md:[&>section:first-of-type]:pt-14">
+      <BackLink />
+      <About standalone />
+      <Stack />
+      <BeyondCode />
+    </div>
   );
 }

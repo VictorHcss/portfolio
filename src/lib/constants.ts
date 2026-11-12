@@ -1,20 +1,39 @@
 export const SITE = {
   name: "Victor Henrique",
-  title: "Desenvolvedor Full Stack Júnior",
+  role: "Desenvolvedor de Software",
+  title: "Desenvolvedor de Software · Full Stack Júnior",
   headline: "TypeScript • React • Next.js",
+  location: "Governador Valadares, MG",
   url: "https://portfolio-virid-alpha-93.vercel.app",
   email: "henvictor2@gmail.com",
   github: "https://github.com/VictorHcss",
+  githubHandle: "github.com/VictorHcss",
   linkedin: "https://www.linkedin.com/in/victor-henrique-155842377/",
+  linkedinHandle: "in/victor-henrique-155842377",
   cv: "/cv/Victor_Henrique_Desenvolvedor_Web.pdf",
   cvDownloadName: "Victor_Henrique_Desenvolvedor_Web.pdf",
-};
+  available: true,
+  availability: "Disponível para oportunidades",
+} as const;
 
-export const SKILL_GROUPS: { label: string; items: string[] }[] = [
-  { label: "Linguagens", items: ["TypeScript", "JavaScript", "Python", "SQL"] },
-  { label: "Front-end", items: ["React", "Next.js", "HTML", "CSS", "Tailwind CSS"] },
-  { label: "Back-end e APIs", items: ["APIs REST", "Next.js", "FastAPI"] },
-  { label: "Banco de dados", items: ["PostgreSQL", "SQLite"] },
-  { label: "Testes", items: ["Vitest", "Playwright"] },
-  { label: "Ferramentas", items: ["Git", "GitHub", "Docker", "Vercel"] },
+/** Especialidades que alternam no Hero — todas presentes nos projetos. */
+export const SPECIALTIES = [
+  "aplicações full stack",
+  "interfaces modernas",
+  "APIs e regras de negócio",
+  "automações",
+] as const;
+
+export interface NavItem {
+  id: string;
+  label: string;
+  /** Página dedicada que também ativa este item no menu. */
+  page?: string;
+}
+
+export const NAV_ITEMS: NavItem[] = [
+  { id: "projetos", label: "Projetos", page: "/projetos" },
+  { id: "sobre", label: "Sobre", page: "/sobre" },
+  { id: "stack", label: "Stack" },
+  { id: "contato", label: "Contato", page: "/contato" },
 ];

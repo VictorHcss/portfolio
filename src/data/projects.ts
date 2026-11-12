@@ -3,22 +3,40 @@ import type { FeaturedProject, Project } from "@/types/project";
 /**
  * Projetos em destaque, escritos à mão. Mantenha estes textos alinhados
  * ao currículo e aos READMEs dos repositórios.
+ * As imagens em /public/projects são capturas reais das demos publicadas
+ * (o print do Aureon vem do próprio repositório, com dados de demonstração).
  */
 export const FEATURED_PROJECTS: FeaturedProject[] = [
   {
-    slug: "Kombexa",
+    slug: "kombexa",
     title: "Kombexa",
+    kind: "SaaS de gestão",
+    stage: "development",
     status: "MVP em desenvolvimento",
     summary:
-      "Sistema web de gestão para academias de artes marciais, com mensalidades, presença, equipe e área do aluno.",
-    problem:
-      "Academias pequenas controlam alunos, mensalidades e presença em planilhas e mensagens. O Kombexa reúne isso em um só lugar, com permissões por perfil e dados separados entre academias.",
+      "Plataforma de gestão para academias de artes marciais: alunos, mensalidades, pagamentos, presença, graduações e uma Área do Aluno para cada atleta.",
+    pillars: [
+      {
+        label: "Arquitetura",
+        text: "Next.js 16 com Server Components e Server Actions, validação com Zod e migrations versionadas.",
+      },
+      {
+        label: "Autenticação",
+        text: "Permissões por perfil (equipe, aluno, responsável e plataforma) checadas em toda página e action.",
+      },
+      {
+        label: "Banco de dados",
+        text: "PostgreSQL com Drizzle ORM e isolamento de dados entre academias.",
+      },
+      {
+        label: "Regras de negócio",
+        text: "Mensalidade quitada pela soma dos pagamentos, pagamento parcial e geração do mês sem duplicar.",
+      },
+    ],
     highlights: [
-      "Alunos, mensalidades, pagamentos parciais e financeiro",
-      "Autenticação, permissões por perfil e isolamento de dados entre academias",
-      "Log de auditoria",
-      "Cadastro de alunos por QR Code para agilizar o processo de registro",
-      "Área do Aluno para acesso às pagamentos de mensalidade e funcionalidades",
+      "Presença por QR Code e carteirinha digital do aluno",
+      "Financeiro, relatórios e recibos com a identidade da academia",
+      "Log de auditoria e direitos do titular (LGPD)",
     ],
     stack: [
       "Next.js",
@@ -27,24 +45,97 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "PostgreSQL",
       "Drizzle ORM",
       "Zod",
+      "Vitest",
+      "Playwright",
       "Docker",
     ],
+    image: {
+      src: "/projects/kombexa.webp",
+      alt: "Site do Kombexa mostrando o painel da academia e a carteirinha do aluno com QR Code",
+    },
     githubUrl: "https://github.com/VictorHcss/kombexa",
     demoUrl: "https://kombexa-website-pi.vercel.app",
+    demoLabel: "Demonstração interativa",
+  },
+  {
+    slug: "aureon",
+    title: "Aureon",
+    kind: "Automação & monitoramento",
+    stage: "functional",
+    status: "Funcional · uso pessoal",
+    summary:
+      "Monitor pessoal de preços: consulta os produtos cadastrados todos os dias, guarda o histórico, compara ofertas e avisa quando surge uma oportunidade.",
+    pillars: [
+      {
+        label: "Monitoramento",
+        text: "Coleta pela API oficial do Mercado Livre, com OAuth renovado automaticamente.",
+      },
+      {
+        label: "Automação",
+        text: "Rotina diária no GitHub Actions, com trava contra execução duplicada, timeouts e repetição limitada.",
+      },
+      {
+        label: "Histórico de preços",
+        text: "Gráficos de 7 a 180 dias, menor preço observado e regras de alerta por produto.",
+      },
+      {
+        label: "Integrações",
+        text: "Avisos e relatório diário por Telegram, e-mail (Resend) e WhatsApp Cloud API.",
+      },
+    ],
+    highlights: [
+      "Login com cookie assinado, proteção contra SSRF e redação de segredos nos logs",
+      "Painel responsivo com tema claro, escuro ou do sistema",
+    ],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "Zod",
+      "Recharts",
+      "Vitest",
+      "GitHub Actions",
+    ],
+    image: {
+      src: "/projects/aureon.webp",
+      alt: "Visão geral do painel do Aureon no tema escuro, com dados de demonstração",
+    },
+    githubUrl: "https://github.com/VictorHcss/aureon",
+    demoUrl: "https://aureon-orpin-five.vercel.app",
+    demoLabel: "Painel (acesso restrito)",
   },
   {
     slug: "finance-ai",
     title: "Finance.AI",
+    kind: "Finanças pessoais",
+    stage: "functional",
     status: "Funcional, em evolução",
     summary:
-      "Controle financeiro pessoal com dashboard, metas, importação de extratos e insights gerados do histórico.",
-    problem:
-      "Ajuda a entender para onde o dinheiro vai: mostra saldo, entradas e saídas, detecta despesas recorrentes e projeta o prazo para concluir metas.",
+      "Gerenciamento financeiro pessoal com dashboard, metas e importação de extratos. A proposta é uma experiência inteligente de organização e análise das finanças.",
+    pillars: [
+      {
+        label: "Dashboards",
+        text: "Saldo, entradas, saídas e evolução das metas em gráficos com Recharts.",
+      },
+      {
+        label: "APIs",
+        text: "FastAPI em camadas (routers, serviços e repositórios) com autenticação por sessão.",
+      },
+      {
+        label: "Testes",
+        text: "89 testes automatizados no back-end, incluindo isolamento de dados entre contas.",
+      },
+      {
+        label: "Insights",
+        text: "Categoria dominante, despesas recorrentes, tendência de receita e projeção de metas, gerados do histórico real.",
+      },
+    ],
     highlights: [
-      "Transações com exportação CSV, metas com progresso e notificações",
       "Importação de extratos CSV e OFX",
-      "API FastAPI em camadas, com autenticação e isolamento de dados por conta",
-      "89 testes automatizados no back-end",
+      "Transações com exportação CSV e notificações",
+      "Modo local automático quando o back-end está indisponível",
     ],
     stack: [
       "Next.js",
@@ -56,21 +147,43 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "FastAPI",
       "SQLite",
     ],
+    metric: { value: "89", label: "testes automatizados no back-end" },
+    image: {
+      src: "/projects/finance.webp",
+      alt: "Página inicial do Finance.AI com resumo de saldo, entradas e saídas",
+    },
     githubUrl: "https://github.com/VictorHcss/finance-ai",
     demoUrl: "https://finance-ai-flame-six.vercel.app",
   },
   {
     slug: "foodie",
     title: "Foodie",
-    status: "Projeto de interface",
+    kind: "Interface & UX",
+    stage: "concept",
+    status: "Conceitual · foco em front-end",
     summary:
-      "Aplicação de delivery com busca, filtros, sacola, cupons e histórico de pedidos.",
-    problem:
-      "Projeto para praticar interfaces e fluxos interativos: descobrir restaurantes, montar a sacola, aplicar cupons e acompanhar pedidos.",
+      "Aplicação de delivery para descobrir restaurantes, montar a sacola, aplicar cupons e acompanhar pedidos, com foco total na experiência.",
+    pillars: [
+      {
+        label: "Interface",
+        text: "Componentes reutilizáveis com shadcn/ui e tema claro e escuro.",
+      },
+      {
+        label: "Experiência",
+        text: "Busca, filtros e ordenação para chegar rápido ao prato certo.",
+      },
+      {
+        label: "Interatividade",
+        text: "Sacola, cupons de desconto, favoritos, avaliações e status de pedidos.",
+      },
+      {
+        label: "Front-end",
+        text: "Estado compartilhado com Context API e persistência no navegador.",
+      },
+    ],
     highlights: [
-      "Busca, filtros e ordenação; páginas de restaurantes",
-      "Sacola, cupons de desconto, favoritos e avaliações",
-      "Login, cadastro e perfil; tema claro e escuro",
+      "Login, cadastro e perfil",
+      "Interface responsiva do celular ao desktop",
     ],
     stack: [
       "Next.js",
@@ -80,17 +193,22 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "shadcn/ui",
       "Context API",
     ],
+    image: {
+      src: "/projects/foodie.webp",
+      alt: "Página inicial do Foodie com busca de restaurantes e categorias de pratos",
+    },
     githubUrl: "https://github.com/VictorHcss/foodie",
     demoUrl: "https://foodie-neon-five.vercel.app",
-    note: "",
   },
 ];
 
 const FEATURED_REPOS = new Set([
   "kombexa",
+  "kombexa-website",
   "fight-manager",
   "finance-ai",
   "foodie",
+  "aureon",
   "portfolio",
 ]);
 

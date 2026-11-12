@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { Contact } from "@/components/home/Contact";
+import { Contact } from "@/components/sections/Contact";
+import { BackLink } from "@/components/ui/BackLink";
 
 export const metadata: Metadata = {
   title: "Contato",
   description: "Fale com Victor Henrique: e-mail, GitHub e LinkedIn.",
+  alternates: { canonical: "/contato" },
 };
 
 export default function ContatoPage() {
   return (
-    <main id="conteudo" className="max-w-6xl mx-auto px-4 sm:px-6 relative">
-      <Header nome="VH" />
-      <Contact full />
-      <Footer />
-    </main>
+    <div className="pt-24 md:pt-32 [&>section:first-of-type]:pt-10 md:[&>section:first-of-type]:pt-14">
+      <BackLink />
+      <Contact standalone />
+    </div>
   );
 }

@@ -1,59 +1,322 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Victor Henrique — identidade lavanda
+   Tokens de tema claro (padrão) e escuro. O tema escuro vale quando:
+   - o usuário escolhe "escuro" (data-theme="dark"), ou
+   - o sistema prefere escuro e o usuário não escolheu "claro".
+   Contrastes de texto verificados para WCAG AA.
+   ========================================================================== */
+
 :root {
-  --background: #0a0a0a;
-  --foreground: #e5e5e5;
-  --card-background: #141414;
-  --card-border: #262626;
-  --accent-neon: #ffffff;
+  color-scheme: light;
+
+  /* Marca (decorativo: brilhos, bordas, pontos) */
+  --brand: #9675e8;
+  --lavender: #c4b5fd;
+  --glow: 150 117 232;
+
+  /* Superfícies */
+  --bg: #faf8ff;
+  --bg-deep: #f3effc;
+  --surface: #ffffff;
+  --surface-2: #f6f2ff;
+  --surface-3: #ebe4fb;
+
+  /* Ação e texto colorido (contraste AA sobre fundos claros) */
+  --primary: #7c5cc4; /* botões: branco sobre ele = 5.0:1 */
+  --primary-strong: #6d4bb8;
+  --secondary: #7c5cc4;
+  --accent: #6d4bb8;
+
+  /* Texto */
+  --text: #252033;
+  --text-muted: #5f5873;
+  --text-subtle: #6b6480;
+
+  /* Linhas */
+  --line: rgb(124 92 196 / 0.14);
+  --line-strong: rgb(124 92 196 / 0.26);
+  --grid: 124 92 196;
+  --grid-alpha: 0.07;
+
+  --success: #15803d;
+  --danger: #b91c1c;
+
+  /* Profundidade */
+  --shadow: 76 52 140;
+  --shadow-alpha: 0.14;
+  --vignette: transparent;
+
+  /* Gradiente de títulos */
+  --grad-from: #252033;
+  --grad-via: #7c5cc4;
+  --grad-to: #9675e8;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #171323;
+  --bg-deep: #110e1a;
+  --surface: #211b30;
+  --surface-2: #2a2340;
+  --surface-3: #342b4f;
+  --primary: #7c5cc4;
+  --primary-strong: #6d4bb8;
+  --secondary: #a991f0;
+  --accent: #c4b5fd;
+  --text: #f4f1fb;
+  --text-muted: #b3a8c9;
+  --text-subtle: #9a90b0;
+  --line: rgb(196 181 253 / 0.1);
+  --line-strong: rgb(196 181 253 / 0.2);
+  --grid: 196 181 253;
+  --grid-alpha: 0.05;
+  --success: #4ade80;
+  --danger: #f87171;
+  --shadow: 0 0 0;
+  --shadow-alpha: 0.55;
+  --vignette: rgb(17 14 26 / 0.65);
+  --grad-from: #f4f1fb;
+  --grad-via: #c4b5fd;
+  --grad-to: #a991f0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #171323;
+    --bg-deep: #110e1a;
+    --surface: #211b30;
+    --surface-2: #2a2340;
+    --surface-3: #342b4f;
+    --primary: #7c5cc4;
+    --primary-strong: #6d4bb8;
+    --secondary: #a991f0;
+    --accent: #c4b5fd;
+    --text: #f4f1fb;
+    --text-muted: #b3a8c9;
+    --text-subtle: #9a90b0;
+    --line: rgb(196 181 253 / 0.1);
+    --line-strong: rgb(196 181 253 / 0.2);
+    --grid: 196 181 253;
+    --grid-alpha: 0.05;
+    --success: #4ade80;
+    --danger: #f87171;
+    --shadow: 0 0 0;
+    --shadow-alpha: 0.55;
+    --vignette: rgb(17 14 26 / 0.65);
+    --grad-from: #f4f1fb;
+    --grad-via: #c4b5fd;
+    --grad-to: #a991f0;
+  }
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card-background: var(--card-background);
-  --color-card-border: var(--card-border);
-  --color-accent-neon: var(--accent-neon);
+  --color-bg: var(--bg);
+  --color-bg-deep: var(--bg-deep);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-brand: var(--brand);
+  --color-lavender: var(--lavender);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-subtle: var(--text-subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-serif);
+
+  --ease-out-expo: var(--ease-out-expo);
 }
 
 @theme {
-  --animate-fade-up: fade-up 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  --animate-fade-down: fade-down 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-aurora: aurora 28s ease-in-out infinite alternate;
+  --animate-aurora-slow: aurora 40s ease-in-out infinite alternate-reverse;
+  --animate-pulse-dot: pulse-dot 2.4s ease-out infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 10s ease-in-out infinite;
+  --animate-gradient: gradient-pan 12s ease-in-out infinite alternate;
 
-  @keyframes fade-up {
-    from {
-      opacity: 0;
-      transform: translate3d(0, 14px, 0);
+  @keyframes aurora {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1);
     }
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
+    50% {
+      transform: translate3d(6%, 4%, 0) scale(1.08);
+    }
+    100% {
+      transform: translate3d(-4%, 8%, 0) scale(0.96);
     }
   }
 
-  @keyframes fade-down {
-    from {
-      opacity: 0;
-      transform: translate3d(0, -12px, 0);
+  @keyframes pulse-dot {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--success) 55%, transparent);
     }
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
+    70%,
+    100% {
+      box-shadow: 0 0 0 8px transparent;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(var(--r, 0deg));
+    }
+    50% {
+      transform: translate3d(0, -10px, 0) rotate(var(--r, 0deg));
+    }
+  }
+
+  @keyframes gradient-pan {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
     }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-}
+/* ==========================================================================
+   Base
+   ========================================================================== */
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  background: var(--bg);
 }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 400ms ease, color 400ms ease;
+}
+
+::selection {
+  background: rgb(var(--glow) / 0.35);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface-3) transparent;
+}
+
+/* ==========================================================================
+   Utilitários de identidade
+   ========================================================================== */
+
+@utility text-gradient {
+  background: linear-gradient(110deg, var(--grad-from) 0%, var(--grad-via) 45%, var(--grad-to) 75%, var(--grad-via) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Grade técnica */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(var(--grid) / var(--grid-alpha)) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--grid) / var(--grid-alpha)) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Sombra suave e natural, adaptada ao tema */
+@utility shadow-soft {
+  box-shadow:
+    0 1px 2px rgb(var(--shadow) / calc(var(--shadow-alpha) * 0.5)),
+    0 18px 40px -22px rgb(var(--shadow) / var(--shadow-alpha));
+}
+
+@utility shadow-lift {
+  box-shadow:
+    0 2px 4px rgb(var(--shadow) / calc(var(--shadow-alpha) * 0.5)),
+    0 40px 80px -36px rgb(var(--glow) / 0.45);
+}
+
+@utility shadow-button {
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.14),
+    0 10px 28px -12px rgb(var(--glow) / 0.9);
+}
+
+/* Superfície de card com profundidade */
+@utility surface-card {
+  background:
+    linear-gradient(180deg, rgb(var(--glow) / 0.04), transparent 40%),
+    var(--surface);
+  border: 1px solid var(--line);
+  box-shadow:
+    0 1px 2px rgb(var(--shadow) / calc(var(--shadow-alpha) * 0.4)),
+    0 24px 48px -28px rgb(var(--shadow) / var(--shadow-alpha));
+}
+
+/* Vidro discreto */
+@utility glass {
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border: 1px solid var(--line-strong);
+}
+
+/* Spotlight que segue o cursor (variáveis --mx/--my definidas via JS) */
+@utility spotlight {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: radial-gradient(520px circle at var(--mx, 50%) var(--my, -20%), rgb(var(--glow) / 0.13), transparent 45%);
+    opacity: 0;
+    transition: opacity 400ms var(--ease-out-expo);
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Acessibilidade: movimento reduzido
+   ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   html {
