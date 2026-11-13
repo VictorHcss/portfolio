@@ -103,12 +103,6 @@ export const HeroPortrait = () => {
             aria-hidden="true"
             className="shrink-0 text-accent"
           />
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.16em] text-subtle uppercase">
-              Cursando
-            </p>
-            <p className="mt-0.5 text-sm text-text">ADS · Anhanguera</p>
-          </div>
         </div>
       </motion.div>
     </div>

@@ -62,7 +62,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     title: "Aureon",
     kind: "Automação & monitoramento",
     stage: "functional",
-    status: "Funcional · uso pessoal",
+    status: "Funcional · Em desenvolvimento",
     summary:
       "Monitor pessoal de preços: consulta os produtos cadastrados todos os dias, guarda o histórico, compara ofertas e avisa quando surge uma oportunidade.",
     pillars: [
@@ -104,7 +104,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     },
     githubUrl: "https://github.com/VictorHcss/aureon",
     demoUrl: "https://aureon-orpin-five.vercel.app",
-    demoLabel: "Painel (acesso restrito)",
+    demoLabel: "Demonstração interativa",
   },
   {
     slug: "finance-ai",

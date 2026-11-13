@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, type Variants } from "motion/react";
 import { ArrowDown, ArrowRight, Download } from "lucide-react";
 import { SITE, SPECIALTIES } from "@/lib/constants";
@@ -56,28 +57,39 @@ export const Hero = () => (
               aria-hidden="true"
             />
             {SITE.availability}
-            <span className="hidden font-mono text-subtle sm:inline">
-              · Júnior ou estágio
-            </span>
           </motion.p>
         )}
 
-        <motion.p
-          variants={item}
-          className="mb-4 font-mono text-xs tracking-[0.14em] text-secondary uppercase md:text-sm"
-        >
-          {SITE.role}
-        </motion.p>
+        <motion.div variants={item} className="flex items-center gap-4 sm:gap-6">
+          {/* avatar no celular e tablet; no desktop a foto grande ocupa a coluna da direita */}
+          <span className="relative shrink-0 rounded-full bg-gradient-to-br from-lavender via-brand to-primary p-[2px] shadow-[0_12px_32px_-12px_rgb(var(--glow)/0.8)] lg:hidden">
+            <span className="relative block size-16 overflow-hidden rounded-full bg-surface sm:size-24">
+              <Image
+                src="/victor-henrique.webp"
+                alt="Fotografia de Victor Henrique"
+                fill
+                priority
+                sizes="96px"
+                className="object-cover object-[50%_22%]"
+              />
+            </span>
+          </span>
 
-        <motion.h1
-          variants={item}
-          id="hero-title"
-          className="text-[clamp(3.25rem,11vw,7.25rem)] leading-[0.88] font-semibold tracking-[-0.055em] text-text"
-        >
-          Victor
-          <br />
-          <span className="text-gradient animate-gradient">Henrique</span>
-        </motion.h1>
+          <div className="min-w-0">
+            <p className="mb-3 font-mono text-xs tracking-[0.14em] text-secondary uppercase md:mb-4 md:text-sm">
+              {SITE.role}
+            </p>
+
+            <h1
+              id="hero-title"
+              className="text-[clamp(2.75rem,11vw,7.25rem)] leading-[0.88] font-semibold tracking-[-0.055em] text-text"
+            >
+              Victor
+              <br />
+              <span className="text-gradient animate-gradient">Henrique</span>
+            </h1>
+          </div>
+        </motion.div>
 
         <motion.p
           variants={item}
@@ -144,7 +156,7 @@ export const Hero = () => (
         </motion.div>
       </motion.div>
 
-      <div className="lg:col-span-5">
+      <div className="hidden lg:col-span-5 lg:block">
         <HeroPortrait />
       </div>
     </div>
@@ -158,7 +170,7 @@ export const Hero = () => (
       {FACTS.map((fact, i) => (
         <div
           key={fact.label}
-          className={`flex items-baseline gap-3 py-5 sm:flex-col sm:gap-1 sm:px-6 sm:py-7 ${
+          className={`flex flex-col gap-1 py-5 sm:px-6 sm:py-7 ${
             i > 0 ? "border-t border-line sm:border-t-0 sm:border-l" : "sm:pl-0"
           }`}
         >

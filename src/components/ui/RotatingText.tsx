@@ -22,9 +22,15 @@ export const RotatingText = ({ words, interval = 2600, className = "" }: Rotatin
   }, [words.length, interval]);
 
   return (
-    <span className={`relative inline-grid align-bottom ${className}`}>
+    <span className={`relative grid align-bottom sm:inline-grid ${className}`}>
       <span className="sr-only">{words.join(", ")}</span>
-      <span aria-hidden="true" className="relative inline-block overflow-hidden py-[0.08em]">
+      {/* reserva a largura da palavra mais longa para o texto ao redor não pular a cada troca */}
+      {words.map((word) => (
+        <span key={word} aria-hidden="true" className="invisible col-start-1 row-start-1 py-[0.08em] whitespace-nowrap">
+          {word}
+        </span>
+      ))}
+      <span aria-hidden="true" className="relative col-start-1 row-start-1 inline-block overflow-hidden py-[0.08em]">
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={words[index]}

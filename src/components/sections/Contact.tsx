@@ -58,7 +58,7 @@ export const Contact = ({ standalone = false }: ContactProps) => {
         </div>
 
         <div className="relative grid gap-12 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-7">
+          <div className="min-w-0 lg:col-span-7">
             <Reveal>
               <p className="mb-6 flex items-center gap-3 font-mono text-xs tracking-[0.14em] text-subtle uppercase">
                 <span className="text-secondary">04</span>
@@ -111,7 +111,7 @@ export const Contact = ({ standalone = false }: ContactProps) => {
             )}
           </div>
 
-          <div className={`lg:col-span-5 ${standalone ? "lg:self-start" : "lg:self-end"}`}>
+          <div className={`min-w-0 lg:col-span-5 ${standalone ? "lg:self-start" : "lg:self-end"}`}>
             <Reveal delay={0.15}>
               {standalone ? (
                 <ContactForm />

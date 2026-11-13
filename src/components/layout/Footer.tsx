@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { NAV_ITEMS, SITE } from "@/lib/constants";
 
-const linkClass = "inline-flex items-center gap-1 py-1 text-muted transition-colors hover:text-text";
+const linkClass = "inline-flex items-center gap-1 py-2 text-muted md:py-1 transition-colors hover:text-text";
 
 export const Footer = () => (
   <footer className="mx-auto w-full max-w-6xl px-4 pb-10 sm:px-6">

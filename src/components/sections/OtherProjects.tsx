@@ -54,7 +54,7 @@ export const OtherProjects = ({ projects, limit }: OtherProjectsProps) => {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative z-10 rounded-sm px-1 py-1 font-mono text-xs text-muted transition-colors hover:text-accent"
+                      className="relative z-10 rounded-sm px-1 py-2.5 font-mono text-xs text-muted transition-colors hover:text-accent"
                     >
                       demo<span className="sr-only"> de {project.title}</span> ↗
                     </a>
