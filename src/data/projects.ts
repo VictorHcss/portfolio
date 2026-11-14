@@ -155,7 +155,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       alt: "Página inicial do Finance.AI com resumo de saldo, entradas e saídas",
     },
     githubUrl: "https://github.com/VictorHcss/finance-ai",
-    demoUrl: "https://finance-ai-flame-six.vercel.app",
+    demoUrl: "https://landing-nu-virid-55.vercel.app",
   },
   {
     slug: "foodie",
