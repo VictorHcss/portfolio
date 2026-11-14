@@ -88,7 +88,7 @@ export const ProjectCase = ({ project, index, priority = false }: ProjectCasePro
                   className="group/link inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-text"
                 >
                   <span className="bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px] bg-bottom-left bg-no-repeat pb-0.5 transition-[background-size] duration-500 ease-out-expo group-hover/link:bg-[length:100%_1px]">
-                    {project.demoLabel ?? "Ver demonstração"}
+                    Ver projeto ao vivo
                   </span>
                   <ArrowUpRight
                     size={16}

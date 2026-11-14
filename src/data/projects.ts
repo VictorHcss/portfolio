@@ -55,7 +55,6 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     },
     githubUrl: "https://github.com/VictorHcss/kombexa",
     demoUrl: "https://kombexa-website-pi.vercel.app",
-    demoLabel: "Demonstração interativa",
   },
   {
     slug: "aureon",
@@ -64,28 +63,30 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     stage: "functional",
     status: "Funcional · Em desenvolvimento",
     summary:
-      "Monitor pessoal de preços: consulta os produtos cadastrados todos os dias, guarda o histórico, compara ofertas e avisa quando surge uma oportunidade.",
+      "Monitor de preços com conta própria: cada pessoa cadastra os produtos que quer acompanhar e o Aureon consulta os preços todos os dias, guarda o histórico, compara as ofertas e avisa quando surge uma oportunidade.",
     pillars: [
       {
-        label: "Monitoramento",
-        text: "Coleta pela API oficial do Mercado Livre, com OAuth renovado automaticamente.",
+        label: "Coleta de preços",
+        text: "Scraper do Mercado Livre da Bright Data, chamado só no servidor. Uma falha nunca vira preço nem apaga o último preço válido.",
       },
       {
         label: "Automação",
-        text: "Rotina diária no GitHub Actions, com trava contra execução duplicada, timeouts e repetição limitada.",
+        text: "Coleta diária às 8h no GitHub Actions, com trava contra execução duplicada, timeouts, repetição limitada e limite de taxa.",
       },
       {
-        label: "Histórico de preços",
-        text: "Gráficos de 7 a 180 dias, menor preço observado e regras de alerta por produto.",
+        label: "Regras de alerta",
+        text: "Preço-alvo, queda percentual, menor preço já visto, volta ao estoque e dados desatualizados, com deduplicação e período de espera.",
       },
       {
-        label: "Integrações",
-        text: "Avisos e relatório diário por Telegram, e-mail (Resend) e WhatsApp Cloud API.",
+        label: "Notificações",
+        text: "Alertas e relatório diário por e-mail com Resend, no máximo um relatório por dia e sem repetir o mesmo aviso.",
       },
     ],
     highlights: [
-      "Login com cookie assinado, proteção contra SSRF e redação de segredos nos logs",
-      "Painel responsivo com tema claro, escuro ou do sistema",
+      "Contas com cadastro e recuperação de senha; cada pessoa vê só os próprios produtos e alertas",
+      "Várias ofertas por produto e histórico de 7, 30, 90, 180 dias ou do período todo",
+      "Sessão em cookie assinado, proteção contra SSRF, redação de segredos nos logs e RLS no banco",
+      "Documentação de estudo: arquitetura, fluxos completos, glossário e roteiro de estudos",
     ],
     stack: [
       "Next.js",
@@ -97,6 +98,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "Recharts",
       "Vitest",
       "GitHub Actions",
+      "Bright Data",
     ],
     image: {
       src: "/projects/aureon.webp",
@@ -104,7 +106,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     },
     githubUrl: "https://github.com/VictorHcss/aureon",
     demoUrl: "https://aureon-orpin-five.vercel.app",
-    demoLabel: "Demonstração interativa",
+    note: "Hoje a coleta cobre o Mercado Livre. Por isso o Aureon fala em menor preço entre as lojas monitoradas, nunca em menor preço do mercado. A imagem usa dados de demonstração.",
   },
   {
     slug: "finance-ai",

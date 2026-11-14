@@ -32,6 +32,5 @@ export interface FeaturedProject {
   image: { src: string; alt: string };
   githubUrl: string;
   demoUrl?: string;
-  demoLabel?: string;
   note?: string;
 }
