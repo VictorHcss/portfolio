@@ -20,7 +20,7 @@ export const Projects = ({ standalone = false }: ProjectsProps) => (
           Ideias que viraram <span className="text-gradient">software de verdade.</span>
         </>
       }
-      description="Quatro projetos próprios, cada um com o seu status real: o que já funciona, o que ainda está em construção e o que é um estudo de interface."
+      description="Cinco projetos próprios, cada um com o seu status real: o que já funciona, o que ainda está em construção e o que é um estudo de interface."
     />
     <Reveal className="-mt-6 mb-10 md:-mt-8 md:mb-14">
       <StageLegend />

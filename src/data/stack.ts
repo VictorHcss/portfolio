@@ -84,6 +84,7 @@ export const STACK_GROUPS: StackGroup[] = [
       { name: "Drizzle ORM", description: "Queries tipadas e migrations versionadas", icon: siDrizzle },
       { name: "SQLite", description: "Persistência leve sem ORM", icon: siSqlite },
       { name: "Supabase", description: "PostgreSQL gerenciado com RLS", icon: siSupabase },
+      { name: "pgvector", description: "Busca vetorial com índice HNSW", icon: Network },
     ],
   },
   {
@@ -105,7 +106,7 @@ export const STACK_GROUPS: StackGroup[] = [
     kind: "studying",
     items: [
       { name: "Arquitetura de software", description: "Camadas, padrões e decisões de design", icon: Boxes },
-      { name: "Inteligência artificial", description: "Como aplicar IA em produtos reais", icon: BrainCircuit },
+      { name: "LLMs e RAG", description: "Embeddings, busca semântica e respostas com fontes", icon: BrainCircuit },
       { name: "Automação", description: "Rotinas e integrações que poupam trabalho manual", icon: Workflow },
     ],
   },

@@ -31,7 +31,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 const description =
-  "Victor Henrique, desenvolvedor de software full stack em Governador Valadares, MG. TypeScript, React, Next.js, PostgreSQL e FastAPI. Projetos: Kombexa, Finance.AI, Foodie e Aureon.";
+  "Victor Henrique, desenvolvedor de software full stack em Governador Valadares, MG. TypeScript, React, Next.js, PostgreSQL e FastAPI. Projetos: Kombexa, Cognita AI, Aureon, Finance.AI e Foodie.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -53,6 +53,8 @@ export const metadata: Metadata = {
     "Next.js",
     "PostgreSQL",
     "FastAPI",
+    "LLM",
+    "RAG",
     "Governador Valadares",
   ],
   alternates: { canonical: "/" },
@@ -92,7 +94,7 @@ const personJsonLd = {
   image: `${SITE.url}/victor-henrique.webp`,
   address: { "@type": "PostalAddress", addressLocality: "Governador Valadares", addressRegion: "MG", addressCountry: "BR" },
   sameAs: [SITE.github, SITE.linkedin],
-  knowsAbout: ["TypeScript", "React", "Next.js", "PostgreSQL", "Python", "FastAPI"],
+  knowsAbout: ["TypeScript", "React", "Next.js", "PostgreSQL", "Python", "FastAPI", "LLM", "RAG"],
 };
 
 export default function RootLayout({

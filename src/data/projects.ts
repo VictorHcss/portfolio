@@ -57,6 +57,57 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     demoUrl: "https://kombexa-website-pi.vercel.app",
   },
   {
+    slug: "cognita-ai",
+    title: "Cognita AI",
+    kind: "IA aplicada · LLM & RAG",
+    stage: "development",
+    status: "Etapa 5 de 9 · em desenvolvimento",
+    summary:
+      "Plataforma de conhecimento com IA: você envia PDFs, DOCX e Markdown, o Cognita extrai o texto, divide em trechos, gera embeddings e responde perguntas só com base nos seus documentos, citando a fonte de cada afirmação.",
+    pillars: [
+      {
+        label: "Pipeline RAG",
+        text: "A pergunta vira embedding, os trechos mais próximos viram fontes numeradas e a LLM responde com temperatura baixa, citando [n] após cada afirmação.",
+      },
+      {
+        label: "Busca semântica",
+        text: "PostgreSQL com pgvector e índice HNSW, vetores de 768 dimensões e avaliação da busca com hit@k e MRR.",
+      },
+      {
+        label: "Respostas verificáveis",
+        text: "Detecta citações inventadas e respostas cortadas. Sem trechos relevantes, a LLM nem é chamada e a resposta é “Não encontrei”.",
+      },
+      {
+        label: "Arquitetura",
+        text: "FastAPI em camadas, com provedores de LLM e embeddings atrás de interfaces: hoje Gemini, mais um provedor falso para testes sem rede e sem custo.",
+      },
+    ],
+    highlights: [
+      "Proteção contra injeção de prompt: o conteúdo dos documentos é tratado como dado, não como instrução",
+      "Biblioteca com coleções, extração de texto e processamento em segundo plano",
+      "Diário de aprendizado com o conceito, as decisões e os testes de cada etapa",
+    ],
+    stack: [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "pgvector",
+      "SQLAlchemy",
+      "Gemini",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Pytest",
+      "Docker",
+    ],
+    metric: { value: "74", label: "testes automatizados no back-end" },
+    image: {
+      src: "/projects/cognita.webp",
+      alt: "Chat do Cognita AI respondendo o que é RAG com citações numeradas e as fontes consultadas",
+    },
+    githubUrl: "https://github.com/VictorHcss/cognita-ai",
+  },
+  {
     slug: "aureon",
     title: "Aureon",
     kind: "Automação & monitoramento",
@@ -106,7 +157,6 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     },
     githubUrl: "https://github.com/VictorHcss/aureon",
     demoUrl: "https://aureon-orpin-five.vercel.app",
-    note: "Hoje a coleta cobre o Mercado Livre. Por isso o Aureon fala em menor preço entre as lojas monitoradas, nunca em menor preço do mercado. A imagem usa dados de demonstração.",
   },
   {
     slug: "finance-ai",
@@ -206,6 +256,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
 
 const FEATURED_REPOS = new Set([
   "kombexa",
+  "cognita-ai",
   "kombexa-website",
   "fight-manager",
   "finance-ai",

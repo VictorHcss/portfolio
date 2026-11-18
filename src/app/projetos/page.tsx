@@ -6,7 +6,7 @@ import { getOtherProjects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Projetos",
-  description: "Kombexa, Finance.AI, Foodie, Aureon e outros projetos de Victor Henrique.",
+  description: "Kombexa, Cognita AI, Aureon, Finance.AI, Foodie e outros projetos de Victor Henrique.",
   alternates: { canonical: "/projetos" },
 };
 
